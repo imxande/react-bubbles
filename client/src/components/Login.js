@@ -11,13 +11,13 @@ const Login = (props) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(input, 'Input here it works!')
+    console.log(input, 'Input here!')
     axios
          .post('http://localhost:5000/api/login', input)
          .then(res =>{
            console.log(res)
            localStorage.setItem('token', res.data.payload)
-           props.history.push('/bubble')
+           props.history.push('/protected')
          })
          .catch(err => console.log(err)) 
   }
